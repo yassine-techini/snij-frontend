@@ -1,0 +1,126 @@
+{
+  "common": {
+    "search": "Search",
+    "home": "Home",
+    "documents": "Documents",
+    "assistant": "Legal Assistant",
+    "language": "Language",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "close": "Close",
+    "viewMore": "View more",
+    "viewLess": "View less"
+  },
+  "home": {
+    "title": "National Legal Information Portal",
+    "subtitle": "Republic of Tunisia",
+    "description": "Integrated system for accessing Tunisian legal texts",
+    "searchPlaceholder": "Search laws, decrees and case law...",
+    "stats": {
+      "laws": "Laws",
+      "decrees": "Decrees",
+      "jurisprudence": "Case Law"
+    },
+    "features": {
+      "search": {
+        "title": "Smart Search",
+        "description": "AI-powered advanced search in legal texts"
+      },
+      "assistant": {
+        "title": "Legal Assistant",
+        "description": "Instant Q&A on Tunisian law"
+      },
+      "documents": {
+        "title": "Complete Documents",
+        "description": "Comprehensive database of legal texts"
+      }
+    }
+  },
+  "search": {
+    "title": "Search",
+    "placeholder": "Enter your keywords...",
+    "filters": {
+      "type": "Document type",
+      "domain": "Legal domain",
+      "dateFrom": "From date",
+      "dateTo": "To date",
+      "all": "All"
+    },
+    "types": {
+      "loi": "Law",
+      "decret": "Decree",
+      "jurisprudence": "Case Law"
+    },
+    "domains": {
+      "constitutionnel": "Constitutional",
+      "administratif": "Administrative",
+      "fiscal": "Tax",
+      "travail": "Labor",
+      "commercial": "Commercial",
+      "penal": "Criminal",
+      "civil": "Civil",
+      "famille": "Family",
+      "environnement": "Environmental",
+      "affaires": "Business",
+      "social": "Social"
+    },
+    "results": {
+      "found": "result(s)",
+      "noResults": "No results",
+      "searchFor": "Try different search terms"
+    },
+    "sort": {
+      "relevance": "Most relevant",
+      "dateDesc": "Newest first",
+      "dateAsc": "Oldest first"
+    }
+  },
+  "document": {
+    "summary": "Summary",
+    "content": "Full content",
+    "metadata": "Metadata",
+    "relatedDocs": "Related documents",
+    "download": "Download",
+    "share": "Share",
+    "cite": "Cite",
+    "fields": {
+      "number": "Number",
+      "date": "Date",
+      "domain": "Domain",
+      "status": "Status",
+      "jortRef": "JORT Reference"
+    },
+    "status": {
+      "active": "In force",
+      "abrogated": "Abrogated",
+      "modified": "Modified"
+    }
+  },
+  "assistant": {
+    "title": "Smart Legal Assistant",
+    "subtitle": "Ask any question about Tunisian law",
+    "placeholder": "Type your question here...",
+    "send": "Send",
+    "thinking": "Thinking...",
+    "sources": "Sources",
+    "newChat": "New conversation",
+    "examples": {
+      "title": "Example questions",
+      "q1": "What are the requirements to create an LLC in Tunisia?",
+      "q2": "What is the divorce procedure under Tunisian law?",
+      "q3": "What are employee rights in case of unfair dismissal?"
+    },
+    "disclaimer": "This assistant provides general information and does not replace legal advice"
+  },
+  "footer": {
+    "copyright": "All rights reserved",
+    "ministry": "Ministry of Justice - Republic of Tunisia",
+    "links": {
+      "about": "About",
+      "contact": "Contact",
+      "terms": "Terms of use",
+      "privacy": "Privacy policy"
+    }
+  }
+}

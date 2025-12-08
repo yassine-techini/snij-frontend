@@ -1,0 +1,126 @@
+{
+  "common": {
+    "search": "Rechercher",
+    "home": "Accueil",
+    "documents": "Documents",
+    "assistant": "Assistant juridique",
+    "language": "Langue",
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "retry": "Réessayer",
+    "close": "Fermer",
+    "viewMore": "Voir plus",
+    "viewLess": "Voir moins"
+  },
+  "home": {
+    "title": "Portail National d'Information Juridique",
+    "subtitle": "République Tunisienne",
+    "description": "Système intégré d'accès aux textes juridiques tunisiens",
+    "searchPlaceholder": "Rechercher dans les lois, décrets et jurisprudence...",
+    "stats": {
+      "laws": "Lois",
+      "decrees": "Décrets",
+      "jurisprudence": "Jurisprudences"
+    },
+    "features": {
+      "search": {
+        "title": "Recherche intelligente",
+        "description": "Recherche avancée par IA dans les textes juridiques"
+      },
+      "assistant": {
+        "title": "Assistant juridique",
+        "description": "Questions-réponses instantanées sur le droit tunisien"
+      },
+      "documents": {
+        "title": "Documents complets",
+        "description": "Base de données complète des textes juridiques"
+      }
+    }
+  },
+  "search": {
+    "title": "Recherche",
+    "placeholder": "Entrez vos mots-clés...",
+    "filters": {
+      "type": "Type de document",
+      "domain": "Domaine juridique",
+      "dateFrom": "Date de début",
+      "dateTo": "Date de fin",
+      "all": "Tous"
+    },
+    "types": {
+      "loi": "Loi",
+      "decret": "Décret",
+      "jurisprudence": "Jurisprudence"
+    },
+    "domains": {
+      "constitutionnel": "Constitutionnel",
+      "administratif": "Administratif",
+      "fiscal": "Fiscal",
+      "travail": "Travail",
+      "commercial": "Commercial",
+      "penal": "Pénal",
+      "civil": "Civil",
+      "famille": "Famille",
+      "environnement": "Environnement",
+      "affaires": "Affaires",
+      "social": "Social"
+    },
+    "results": {
+      "found": "résultat(s)",
+      "noResults": "Aucun résultat",
+      "searchFor": "Essayez d'autres termes de recherche"
+    },
+    "sort": {
+      "relevance": "Plus pertinent",
+      "dateDesc": "Plus récent",
+      "dateAsc": "Plus ancien"
+    }
+  },
+  "document": {
+    "summary": "Résumé",
+    "content": "Contenu complet",
+    "metadata": "Métadonnées",
+    "relatedDocs": "Documents connexes",
+    "download": "Télécharger",
+    "share": "Partager",
+    "cite": "Citer",
+    "fields": {
+      "number": "Numéro",
+      "date": "Date",
+      "domain": "Domaine",
+      "status": "Statut",
+      "jortRef": "Référence JORT"
+    },
+    "status": {
+      "active": "En vigueur",
+      "abrogated": "Abrogé",
+      "modified": "Modifié"
+    }
+  },
+  "assistant": {
+    "title": "Assistant juridique intelligent",
+    "subtitle": "Posez toute question sur le droit tunisien",
+    "placeholder": "Écrivez votre question ici...",
+    "send": "Envoyer",
+    "thinking": "Réflexion en cours...",
+    "sources": "Sources",
+    "newChat": "Nouvelle conversation",
+    "examples": {
+      "title": "Exemples de questions",
+      "q1": "Quelles sont les conditions pour créer une SARL en Tunisie ?",
+      "q2": "Quelle est la procédure de divorce en droit tunisien ?",
+      "q3": "Quels sont les droits du salarié en cas de licenciement abusif ?"
+    },
+    "disclaimer": "Cet assistant fournit des informations générales et ne remplace pas l'avis d'un avocat"
+  },
+  "footer": {
+    "copyright": "Tous droits réservés",
+    "ministry": "Ministère de la Justice - République Tunisienne",
+    "links": {
+      "about": "À propos",
+      "contact": "Contact",
+      "terms": "Conditions d'utilisation",
+      "privacy": "Politique de confidentialité"
+    }
+  }
+}
