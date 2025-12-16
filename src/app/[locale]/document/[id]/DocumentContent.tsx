@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import {
   Loader2,
@@ -14,11 +14,16 @@ import {
   AlertCircle,
   Download,
   Share2,
+  Check,
+  Heart,
+  HeartOff,
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { studioClient, type Document } from '@/lib/api';
 import { formatDate } from '@/lib/utils';
+import { generateDocumentPDF } from '@/lib/pdf-export';
+import { useFavorites } from '@/hooks/useFavorites';
 
 const typeIcons = {
   loi: FileText,
@@ -46,11 +51,15 @@ export function DocumentContent({ documentId }: DocumentContentProps) {
   const locale = useLocale();
   const t = useTranslations('document');
   const tSearch = useTranslations('search');
+  const { isFavorite, toggleFavorite, isLoaded: favoritesLoaded } = useFavorites();
 
   const [document, setDocument] = useState<Document | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'summary' | 'content'>('summary');
+  const [copied, setCopied] = useState(false);
+  const [downloading, setDownloading] = useState(false);
+  const [favoriteAnimating, setFavoriteAnimating] = useState(false);
 
   useEffect(() => {
     loadDocument();
@@ -73,6 +82,136 @@ export function DocumentContent({ documentId }: DocumentContentProps) {
     }
   };
 
+  const handleDownloadPDF = useCallback(async () => {
+    if (!document) return;
+    setDownloading(true);
+
+    try {
+      // Helper to extract localized value
+      const getValue = (
+        field: string | { ar: string; fr: string; en?: string } | undefined,
+        fallbackAr?: string,
+        fallbackFr?: string
+      ): string => {
+        if (!field) return fallbackAr || fallbackFr || '';
+        if (typeof field === 'string') return field;
+        const key = locale as 'ar' | 'fr' | 'en';
+        return field[key] || field.ar || field.fr || '';
+      };
+
+      const docTitle = typeof document.title === 'string'
+        ? (locale === 'ar' && document.titleAr ? document.titleAr :
+           locale === 'fr' && document.titleFr ? document.titleFr :
+           document.title)
+        : getValue(document.title);
+      const docContent = getValue(document.content);
+      const docSummary = getValue(document.aiSummary);
+      const docDomaine = typeof document.domaine === 'string'
+        ? document.domaine
+        : document.domaine?.id || '';
+
+      // Generate professional PDF
+      generateDocumentPDF(
+        {
+          id: document.id,
+          type: document.type,
+          numero: document.numero,
+          title: docTitle,
+          content: docContent,
+          summary: docSummary,
+          date: document.date,
+          domaine: docDomaine,
+          statut: document.statut,
+          jortRef: document.jortRef,
+        },
+        {
+          locale,
+          includeHeader: true,
+          includeSummary: true,
+          includeContent: true,
+        }
+      );
+    } catch (err) {
+      console.error('Download error:', err);
+    } finally {
+      setDownloading(false);
+    }
+  }, [document, locale]);
+
+  const handleToggleFavorite = useCallback(() => {
+    if (!document) return;
+
+    // Helper to extract localized value
+    const getValue = (
+      field: string | { ar: string; fr: string; en?: string } | undefined
+    ): string => {
+      if (!field) return '';
+      if (typeof field === 'string') return field;
+      const key = locale as 'ar' | 'fr' | 'en';
+      return field[key] || field.ar || field.fr || '';
+    };
+
+    const docTitle = typeof document.title === 'string'
+      ? (locale === 'ar' && document.titleAr ? document.titleAr :
+         locale === 'fr' && document.titleFr ? document.titleFr :
+         document.title)
+      : getValue(document.title);
+
+    setFavoriteAnimating(true);
+    toggleFavorite({
+      id: document.id,
+      type: document.type,
+      numero: document.numero,
+      title: docTitle,
+      date: document.date,
+    });
+    setTimeout(() => setFavoriteAnimating(false), 300);
+  }, [document, locale, toggleFavorite]);
+
+  const handleShare = useCallback(async () => {
+    if (!document) return;
+
+    // Helper to extract localized value
+    const getValue = (
+      field: string | { ar: string; fr: string; en?: string } | undefined
+    ): string => {
+      if (!field) return '';
+      if (typeof field === 'string') return field;
+      const key = locale as 'ar' | 'fr' | 'en';
+      return field[key] || field.ar || field.fr || '';
+    };
+
+    const docTitle = typeof document.title === 'string'
+      ? (locale === 'ar' && document.titleAr ? document.titleAr :
+         locale === 'fr' && document.titleFr ? document.titleFr :
+         document.title)
+      : getValue(document.title);
+    const url = window.location.href;
+
+    // Try native share API first
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: docTitle,
+          text: `${document.type} ${document.numero} - ${docTitle}`,
+          url: url,
+        });
+        return;
+      } catch (err) {
+        // User cancelled or share failed, fall through to copy
+      }
+    }
+
+    // Fallback to copy URL
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Copy failed:', err);
+    }
+  }, [document, locale]);
+
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
@@ -93,13 +232,43 @@ export function DocumentContent({ documentId }: DocumentContentProps) {
     );
   }
 
-  const TypeIcon = typeIcons[document.type] || FileText;
-  const StatusIcon = statusIcons[document.statut] || CheckCircle;
-  const statusColor = statusColors[document.statut] || 'text-gray-600';
+  const TypeIcon = typeIcons[document.type as keyof typeof typeIcons] || FileText;
+  const statut = document.statut || 'en_vigueur';
+  const StatusIcon = statusIcons[statut as keyof typeof statusIcons] || CheckCircle;
+  const statusColor = statusColors[statut as keyof typeof statusColors] || 'text-gray-600';
 
-  const title = document.title[locale as 'ar' | 'fr' | 'en'] || document.title.ar;
-  const content = document.content[locale as 'ar' | 'fr' | 'en'] || document.content.ar;
-  const summary = document.aiSummary?.[locale as 'ar' | 'fr' | 'en'] || document.aiSummary?.ar;
+  // Helper to extract value from multilingual field or string
+  const getLocalizedValue = (
+    field: string | { ar: string; fr: string; en?: string } | undefined,
+    fallbackAr?: string,
+    fallbackFr?: string
+  ): string => {
+    if (!field) return fallbackAr || fallbackFr || '';
+    if (typeof field === 'string') return field;
+    const localeKey = locale as 'ar' | 'fr' | 'en';
+    return field[localeKey] || field.ar || field.fr || '';
+  };
+
+  // Extract title - handle both formats
+  const title = typeof document.title === 'string'
+    ? (locale === 'ar' && document.titleAr ? document.titleAr :
+       locale === 'fr' && document.titleFr ? document.titleFr :
+       document.title)
+    : getLocalizedValue(document.title);
+
+  // Extract content
+  const content = getLocalizedValue(document.content);
+
+  // Extract summary
+  const summary = getLocalizedValue(document.aiSummary);
+
+  // Extract domaine
+  const domaineId = typeof document.domaine === 'string'
+    ? document.domaine
+    : document.domaine?.id || '';
+
+  // Safe status key for translation
+  const statusKey = statut.replace('_', '') || 'envigueur';
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -122,12 +291,12 @@ export function DocumentContent({ documentId }: DocumentContentProps) {
 
           <div className="flex items-center gap-1">
             <Tag className="h-4 w-4" />
-            <span>{tSearch(`domains.${document.domaine}`)}</span>
+            <span>{tSearch(`domains.${domaineId}`)}</span>
           </div>
 
           <div className={`flex items-center gap-1 ${statusColor}`}>
             <StatusIcon className="h-4 w-4" />
-            <span>{t(`status.${document.statut.replace('_', '')}`)}</span>
+            <span>{t(`status.${statusKey}`)}</span>
           </div>
 
           {document.jortRef && (
@@ -140,14 +309,46 @@ export function DocumentContent({ documentId }: DocumentContentProps) {
 
         {/* Actions */}
         <div className="flex gap-2 mt-4">
-          <Button variant="outline" size="sm">
-            <Download className="h-4 w-4 me-2" />
-            {t('download')}
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={handleDownloadPDF}
+            disabled={downloading}
+          >
+            {downloading ? (
+              <Loader2 className="h-4 w-4 me-2 animate-spin" />
+            ) : (
+              <Download className="h-4 w-4 me-2" />
+            )}
+            {t('download')} PDF
           </Button>
-          <Button variant="outline" size="sm">
-            <Share2 className="h-4 w-4 me-2" />
-            {t('share')}
+          <Button variant="outline" size="sm" onClick={handleShare}>
+            {copied ? (
+              <Check className="h-4 w-4 me-2 text-green-600" />
+            ) : (
+              <Share2 className="h-4 w-4 me-2" />
+            )}
+            {copied ? t('copied') || 'Copié!' : t('share')}
           </Button>
+          {favoritesLoaded && (
+            <Button
+              variant={isFavorite(document.id) ? 'default' : 'outline'}
+              size="sm"
+              onClick={handleToggleFavorite}
+              className={`transition-transform ${favoriteAnimating ? 'scale-110' : ''} ${
+                isFavorite(document.id)
+                  ? 'bg-red-500 hover:bg-red-600 text-white border-red-500'
+                  : ''
+              }`}
+            >
+              {isFavorite(document.id) ? (
+                <Heart className="h-4 w-4 me-2 fill-current" />
+              ) : (
+                <HeartOff className="h-4 w-4 me-2" />
+              )}
+              {isFavorite(document.id) ? t('favorited') || 'Favori' : t('addFavorite') || 'Ajouter aux favoris'}
+            </Button>
+          )}
         </div>
       </div>
 

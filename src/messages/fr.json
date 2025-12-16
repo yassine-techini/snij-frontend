@@ -94,8 +94,12 @@
     "status": {
       "active": "En vigueur",
       "abrogated": "Abrogé",
-      "modified": "Modifié"
-    }
+      "modified": "Modifié",
+      "envigueur": "En vigueur",
+      "abroge": "Abrogé",
+      "modifie": "Modifié"
+    },
+    "copied": "Copié!"
   },
   "assistant": {
     "title": "Assistant juridique intelligent",
@@ -122,5 +126,170 @@
       "terms": "Conditions d'utilisation",
       "privacy": "Politique de confidentialité"
     }
+  },
+  "favorites": {
+    "title": "Mes Favoris",
+    "document": "document",
+    "documents": "documents",
+    "loading": "Chargement...",
+    "emptyTitle": "Aucun favori",
+    "emptyDescription": "Ajoutez des documents à vos favoris pour les retrouver facilement ici.",
+    "browseDocuments": "Parcourir les documents",
+    "clearAll": "Tout supprimer",
+    "confirmClearAll": "Supprimer tous les favoris ?",
+    "addedOn": "Ajouté le",
+    "storageInfo": "Stockage local",
+    "storageDescription": "Vos favoris sont stockés localement dans votre navigateur. Ils ne seront pas synchronisés avec d'autres appareils."
+  },
+  "about": {
+    "title": "À propos du SNIJ",
+    "subtitle": "Système National d'Information Juridique de la République Tunisienne",
+    "mission": {
+      "title": "Notre Mission",
+      "description": "Le SNIJ a pour mission de démocratiser l'accès à l'information juridique tunisienne. Nous mettons à disposition du public, des professionnels du droit et des institutions une plateforme moderne et intuitive permettant de consulter, rechercher et analyser les textes juridiques nationaux."
+    },
+    "features": {
+      "title": "Nos Services",
+      "search": "Recherche intelligente alimentée par l'IA pour trouver rapidement les textes pertinents",
+      "assistant": "Assistant juridique intelligent pour répondre à vos questions sur le droit tunisien",
+      "alerts": "Système d'alertes personnalisées pour suivre les évolutions législatives",
+      "documents": "Base de données complète des lois, décrets et jurisprudences"
+    },
+    "team": {
+      "title": "Équipe",
+      "description": "Le SNIJ est développé et maintenu par une équipe dédiée au sein du Ministère de la Justice, en collaboration avec des experts en technologies de l'information et en droit."
+    },
+    "partners": {
+      "title": "Partenaires",
+      "ministry": "Ministère de la Justice",
+      "imprimerie": "Imprimerie Officielle de la République Tunisienne",
+      "cnudst": "Centre National Universitaire de Documentation Scientifique et Technique"
+    }
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Nous sommes à votre écoute pour toute question ou suggestion",
+    "form": {
+      "name": "Nom complet",
+      "email": "Adresse email",
+      "subject": "Sujet",
+      "message": "Votre message",
+      "submit": "Envoyer le message",
+      "sending": "Envoi en cours...",
+      "success": "Message envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.",
+      "error": "Une erreur est survenue. Veuillez réessayer."
+    },
+    "info": {
+      "title": "Informations de contact",
+      "address": "Avenue Bab Bnet, 1006 Tunis, Tunisie",
+      "phone": "+216 71 560 432",
+      "email": "contact@snij.tn",
+      "hours": "Lundi - Vendredi : 8h30 - 17h30"
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "q1": "Comment puis-je m'inscrire aux alertes juridiques ?",
+      "a1": "Rendez-vous sur la page Alertes et remplissez le formulaire d'inscription avec vos préférences.",
+      "q2": "Les informations sont-elles officielles ?",
+      "a2": "Oui, tous les textes proviennent de sources officielles et sont régulièrement mis à jour.",
+      "q3": "L'accès est-il gratuit ?",
+      "a3": "Oui, l'accès au SNIJ est entièrement gratuit pour tous les citoyens."
+    }
+  },
+  "terms": {
+    "title": "Conditions d'utilisation",
+    "lastUpdate": "Dernière mise à jour",
+    "sections": {
+      "acceptance": {
+        "title": "1. Acceptation des conditions",
+        "content": "En accédant et en utilisant le Système National d'Information Juridique (SNIJ), vous acceptez d'être lié par les présentes conditions d'utilisation. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser ce service."
+      },
+      "service": {
+        "title": "2. Description du service",
+        "content": "Le SNIJ est une plateforme d'accès à l'information juridique tunisienne. Il permet la consultation, la recherche et l'analyse des textes juridiques nationaux incluant les lois, décrets, et jurisprudences."
+      },
+      "usage": {
+        "title": "3. Utilisation autorisée",
+        "content": "Vous êtes autorisé à utiliser ce service à des fins d'information, de recherche et d'éducation. Toute utilisation commerciale des données sans autorisation préalable est interdite."
+      },
+      "disclaimer": {
+        "title": "4. Avertissement",
+        "content": "Les informations fournies sur le SNIJ sont données à titre indicatif et ne constituent pas un avis juridique. Pour toute question juridique spécifique, veuillez consulter un professionnel du droit qualifié."
+      },
+      "intellectual": {
+        "title": "5. Propriété intellectuelle",
+        "content": "Le contenu du SNIJ, y compris les textes, graphiques, logos et logiciels, est protégé par les lois sur la propriété intellectuelle. La reproduction non autorisée est interdite."
+      },
+      "liability": {
+        "title": "6. Limitation de responsabilité",
+        "content": "Le SNIJ s'efforce de maintenir les informations à jour et exactes. Cependant, nous ne pouvons garantir l'exhaustivité ou l'exactitude des informations et déclinons toute responsabilité en cas d'erreur ou d'omission."
+      },
+      "modifications": {
+        "title": "7. Modifications",
+        "content": "Nous nous réservons le droit de modifier ces conditions à tout moment. Les modifications entrent en vigueur dès leur publication sur le site."
+      }
+    }
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "lastUpdate": "Dernière mise à jour",
+    "sections": {
+      "intro": {
+        "title": "Introduction",
+        "content": "Le Système National d'Information Juridique (SNIJ) s'engage à protéger votre vie privée. Cette politique décrit comment nous collectons, utilisons et protégeons vos données personnelles."
+      },
+      "collection": {
+        "title": "1. Données collectées",
+        "content": "Nous collectons les données suivantes : adresse email (pour les alertes), préférences de recherche, données de navigation anonymisées. Nous ne collectons aucune donnée sensible sans votre consentement explicite."
+      },
+      "usage": {
+        "title": "2. Utilisation des données",
+        "content": "Vos données sont utilisées pour : vous envoyer les alertes juridiques auxquelles vous êtes abonné, améliorer nos services, générer des statistiques anonymes d'utilisation."
+      },
+      "storage": {
+        "title": "3. Stockage et sécurité",
+        "content": "Vos données sont stockées de manière sécurisée et ne sont conservées que le temps nécessaire à la fourniture du service. Nous utilisons des mesures de sécurité conformes aux standards de l'industrie."
+      },
+      "rights": {
+        "title": "4. Vos droits",
+        "content": "Conformément à la loi organique n° 2004-63 du 27 juillet 2004 portant sur la protection des données à caractère personnel, vous disposez d'un droit d'accès, de rectification et de suppression de vos données."
+      },
+      "cookies": {
+        "title": "5. Cookies",
+        "content": "Nous utilisons des cookies essentiels au fonctionnement du site. Aucun cookie de traçage publicitaire n'est utilisé. Vous pouvez configurer votre navigateur pour refuser les cookies."
+      },
+      "contact": {
+        "title": "6. Contact",
+        "content": "Pour toute question concernant vos données personnelles, contactez-nous à : privacy@snij.tn"
+      }
+    }
+  },
+  "alerts": {
+    "title": "Alertes Juridiques",
+    "subtitle": "Recevez des notifications par email sur les nouveaux textes juridiques qui vous intéressent.",
+    "personalInfo": "Informations personnelles",
+    "name": "Nom complet",
+    "namePlaceholder": "Votre nom",
+    "email": "Adresse email",
+    "emailPlaceholder": "votre@email.com",
+    "documentTypes": "Types de documents",
+    "domains": "Domaines juridiques",
+    "domainsHint": "Laissez vide pour tous les domaines",
+    "keywords": "Mots-clés",
+    "keywordsPlaceholder": "divorce, immobilier, société...",
+    "keywordsHint": "Séparez les mots-clés par des virgules",
+    "frequency": "Fréquence des notifications",
+    "frequencies": {
+      "immediate": "Immédiate",
+      "daily": "Quotidienne",
+      "weekly": "Hebdomadaire"
+    },
+    "subscribe": "S'abonner aux alertes",
+    "subscribing": "Inscription en cours...",
+    "successTitle": "Inscription réussie !",
+    "successMessage": "Un email de confirmation a été envoyé à votre adresse. Veuillez cliquer sur le lien pour activer vos alertes.",
+    "errorMessage": "Une erreur est survenue. Veuillez réessayer.",
+    "newSubscription": "Nouvelle inscription",
+    "disclaimer": "Vous pouvez vous désabonner à tout moment via le lien dans les emails."
   }
 }

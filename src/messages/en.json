@@ -94,8 +94,12 @@
     "status": {
       "active": "In force",
       "abrogated": "Abrogated",
-      "modified": "Modified"
-    }
+      "modified": "Modified",
+      "envigueur": "In force",
+      "abroge": "Abrogated",
+      "modifie": "Modified"
+    },
+    "copied": "Copied!"
   },
   "assistant": {
     "title": "Smart Legal Assistant",
@@ -122,5 +126,170 @@
       "terms": "Terms of use",
       "privacy": "Privacy policy"
     }
+  },
+  "favorites": {
+    "title": "My Favorites",
+    "document": "document",
+    "documents": "documents",
+    "loading": "Loading...",
+    "emptyTitle": "No favorites",
+    "emptyDescription": "Add documents to your favorites to easily find them here.",
+    "browseDocuments": "Browse documents",
+    "clearAll": "Clear all",
+    "confirmClearAll": "Delete all favorites?",
+    "addedOn": "Added on",
+    "storageInfo": "Local storage",
+    "storageDescription": "Your favorites are stored locally in your browser. They will not be synced with other devices."
+  },
+  "about": {
+    "title": "About SNIJ",
+    "subtitle": "National Legal Information System of the Republic of Tunisia",
+    "mission": {
+      "title": "Our Mission",
+      "description": "SNIJ's mission is to democratize access to Tunisian legal information. We provide the public, legal professionals, and institutions with a modern and intuitive platform to consult, search, and analyze national legal texts."
+    },
+    "features": {
+      "title": "Our Services",
+      "search": "AI-powered smart search to quickly find relevant texts",
+      "assistant": "Intelligent legal assistant to answer your questions about Tunisian law",
+      "alerts": "Personalized alert system to follow legislative developments",
+      "documents": "Complete database of laws, decrees, and case law"
+    },
+    "team": {
+      "title": "Team",
+      "description": "SNIJ is developed and maintained by a dedicated team within the Ministry of Justice, in collaboration with IT and legal experts."
+    },
+    "partners": {
+      "title": "Partners",
+      "ministry": "Ministry of Justice",
+      "imprimerie": "Official Printing Office of the Republic of Tunisia",
+      "cnudst": "National University Center for Scientific and Technical Documentation"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We are here to help with any questions or suggestions",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "subject": "Subject",
+      "message": "Your Message",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully! We will respond as soon as possible.",
+      "error": "An error occurred. Please try again."
+    },
+    "info": {
+      "title": "Contact Information",
+      "address": "Avenue Bab Bnet, 1006 Tunis, Tunisia",
+      "phone": "+216 71 560 432",
+      "email": "contact@snij.tn",
+      "hours": "Monday - Friday: 8:30 AM - 5:30 PM"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": "How can I subscribe to legal alerts?",
+      "a1": "Go to the Alerts page and fill out the subscription form with your preferences.",
+      "q2": "Is the information official?",
+      "a2": "Yes, all texts come from official sources and are regularly updated.",
+      "q3": "Is access free?",
+      "a3": "Yes, access to SNIJ is completely free for all citizens."
+    }
+  },
+  "terms": {
+    "title": "Terms of Use",
+    "lastUpdate": "Last updated",
+    "sections": {
+      "acceptance": {
+        "title": "1. Acceptance of Terms",
+        "content": "By accessing and using the National Legal Information System (SNIJ), you agree to be bound by these terms of use. If you do not accept these terms, please do not use this service."
+      },
+      "service": {
+        "title": "2. Service Description",
+        "content": "SNIJ is a platform for accessing Tunisian legal information. It allows consultation, search, and analysis of national legal texts including laws, decrees, and case law."
+      },
+      "usage": {
+        "title": "3. Authorized Use",
+        "content": "You are authorized to use this service for information, research, and educational purposes. Any commercial use of the data without prior authorization is prohibited."
+      },
+      "disclaimer": {
+        "title": "4. Disclaimer",
+        "content": "The information provided on SNIJ is for informational purposes only and does not constitute legal advice. For any specific legal questions, please consult a qualified legal professional."
+      },
+      "intellectual": {
+        "title": "5. Intellectual Property",
+        "content": "The content of SNIJ, including texts, graphics, logos, and software, is protected by intellectual property laws. Unauthorized reproduction is prohibited."
+      },
+      "liability": {
+        "title": "6. Limitation of Liability",
+        "content": "SNIJ strives to maintain up-to-date and accurate information. However, we cannot guarantee completeness or accuracy and disclaim any liability for errors or omissions."
+      },
+      "modifications": {
+        "title": "7. Modifications",
+        "content": "We reserve the right to modify these terms at any time. Modifications take effect upon publication on the site."
+      }
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdate": "Last updated",
+    "sections": {
+      "intro": {
+        "title": "Introduction",
+        "content": "The National Legal Information System (SNIJ) is committed to protecting your privacy. This policy describes how we collect, use, and protect your personal data."
+      },
+      "collection": {
+        "title": "1. Data Collected",
+        "content": "We collect the following data: email address (for alerts), search preferences, anonymized browsing data. We do not collect any sensitive data without your explicit consent."
+      },
+      "usage": {
+        "title": "2. Data Usage",
+        "content": "Your data is used to: send you the legal alerts you have subscribed to, improve our services, generate anonymous usage statistics."
+      },
+      "storage": {
+        "title": "3. Storage and Security",
+        "content": "Your data is stored securely and retained only for the time necessary to provide the service. We use security measures that comply with industry standards."
+      },
+      "rights": {
+        "title": "4. Your Rights",
+        "content": "In accordance with Organic Law No. 2004-63 of July 27, 2004 on the protection of personal data, you have the right to access, rectify, and delete your data."
+      },
+      "cookies": {
+        "title": "5. Cookies",
+        "content": "We use essential cookies for the site to function. No advertising tracking cookies are used. You can configure your browser to refuse cookies."
+      },
+      "contact": {
+        "title": "6. Contact",
+        "content": "For any questions regarding your personal data, contact us at: privacy@snij.tn"
+      }
+    }
+  },
+  "alerts": {
+    "title": "Legal Alerts",
+    "subtitle": "Receive email notifications about new legal texts that interest you.",
+    "personalInfo": "Personal Information",
+    "name": "Full Name",
+    "namePlaceholder": "Your name",
+    "email": "Email Address",
+    "emailPlaceholder": "your@email.com",
+    "documentTypes": "Document Types",
+    "domains": "Legal Domains",
+    "domainsHint": "Leave empty for all domains",
+    "keywords": "Keywords",
+    "keywordsPlaceholder": "divorce, real estate, company...",
+    "keywordsHint": "Separate keywords with commas",
+    "frequency": "Notification Frequency",
+    "frequencies": {
+      "immediate": "Immediate",
+      "daily": "Daily",
+      "weekly": "Weekly"
+    },
+    "subscribe": "Subscribe to Alerts",
+    "subscribing": "Subscribing...",
+    "successTitle": "Successfully Subscribed!",
+    "successMessage": "A confirmation email has been sent to your address. Please click the link to activate your alerts.",
+    "errorMessage": "An error occurred. Please try again.",
+    "newSubscription": "New Subscription",
+    "disclaimer": "You can unsubscribe at any time via the link in the emails."
   }
 }

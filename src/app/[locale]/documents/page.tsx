@@ -43,16 +43,43 @@ export default function DocumentsPage() {
       const response = await studioClient.getDocuments(type, LIMIT, currentOffset);
 
       if (response.success && response.data) {
-        const newDocs = response.data.results.map((doc) => ({
-          id: doc.id,
-          type: doc.type,
-          title: doc.title[locale as 'ar' | 'fr' | 'en'] || doc.title.ar,
-          excerpt: doc.content[locale as 'ar' | 'fr' | 'en']?.substring(0, 200) || '',
-          date: doc.date,
-          numero: doc.numero,
-          domaine: doc.domaine,
-          score: 1,
-        }));
+        const newDocs: SearchResult[] = response.data.results.map((doc) => {
+          // Handle multilingual title
+          let title = '';
+          if (typeof doc.title === 'string') {
+            title = locale === 'ar' && doc.titleAr ? doc.titleAr :
+                    locale === 'fr' && doc.titleFr ? doc.titleFr :
+                    doc.title;
+          } else if (doc.title) {
+            const key = locale as 'ar' | 'fr' | 'en';
+            title = doc.title[key] || doc.title.ar || doc.title.fr || '';
+          }
+
+          // Handle multilingual content for excerpt
+          let excerpt = '';
+          if (typeof doc.content === 'string') {
+            excerpt = doc.content.substring(0, 200);
+          } else if (doc.content) {
+            const key = locale as 'ar' | 'fr' | 'en';
+            excerpt = (doc.content[key] || doc.content.ar || doc.content.fr || '').substring(0, 200);
+          }
+
+          // Handle domaine
+          const domaineId = typeof doc.domaine === 'string'
+            ? doc.domaine
+            : doc.domaine?.id || '';
+
+          return {
+            id: doc.id,
+            type: doc.type,
+            title,
+            excerpt,
+            date: doc.date,
+            numero: doc.numero,
+            domaine: domaineId ? { id: domaineId, name: domaineId } : undefined,
+            score: 1,
+          };
+        });
 
         if (reset) {
           setDocuments(newDocs);
